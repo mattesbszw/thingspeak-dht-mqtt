@@ -11,7 +11,7 @@ DHT dht(DHT_PIN, DHTTYPE);
 const char* ssid = "...";
 const char* password = "...";
 
-WiFiClient client;
+WiFiClient wifiClient;
 // PubSubClient erzeugen
 
 //Thingspeak-Daten: MQTT-Server/Port sowie die exportierten MQTT-Daten
@@ -74,7 +74,7 @@ void loop(void){
     dhtHumidity = hHum;
   }
   Serial.print("Sensor (%): "); 
-  Serial.println(dhtHumidity);#
+  Serial.println(dhtHumidity);
 
   // hmmmmm ...
   // ...
