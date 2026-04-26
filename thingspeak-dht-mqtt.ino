@@ -56,10 +56,14 @@ void connectWiFi(){
 
 void loop(void){ 
 
+  // WLAN reconnect
   if (WiFi.status() != WL_CONNECTED){
     connectWiFi();
   }
   
+  // MQTT reconnect
+  // ...
+
   float hTmp = dht.readTemperature();
   String dhtTemperature = "0";
   if (!isnan(hTmp)) {
@@ -87,20 +91,7 @@ void mqttConnect(){
   bitte hier eine Schleife verwenden, damit eine Verbindung garantiert wird*/
 }
 
-void reconnect(){
-  /*Hier soll sich der Client neu verbinden*/
-}
-
-void mqttSubscribe(long subChannelID){
-  /*diese Funktion soll den übergebenen Channel abonieren*/
-}
-
 void mqttPublish(long pubChannelID, String message) {
   /*bei Aufruf dieser Funktion soll im übergebenen Channel eine Nachricht veröffentlicht werden
   Diese Nachricht soll verschiendene Felder beinhalten (Die beiden Temperaturen und vll die Luftfeuchtigkeit)*/
-}
-
-void mqttSubscriptionCallback( char* topic, byte* payload, unsigned int length ) {
-  /*Diese Funktion wird aufgerufen, wenn ein abonnierter Channel geupdated wurde
-  /Die empfangene Nachricht (payload) und das Topic sollen auf dem seriellen Monitor ausgegeben werden*/
 }
